@@ -1,0 +1,122 @@
+﻿<section class="border-bottom border-bottom-gray-lighter">
+    <div class="shell">
+        <div class="range">
+            <div class="cell-xs-12">
+                <ul class="breadcrumbs-custom">
+                    <li><a routerLink="/SupplierHome/Index">{{ 'Кабинет поставщика' | translate }}</a></li>
+                    <li class="active">{{ 'Оферты' | translate }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="shell">
+
+
+    <section class="section-50 page-rules page-offers-list">
+        <h3>
+            Список офферов
+        </h3>
+
+        <div class="range offset-top-25">
+
+            <div class="cell-xs-12">
+                <div class="ic-table-responsive">
+                    <table class="ic-table">
+                        <thead>
+                            <tr>
+                                <td>{{ 'Номер лота' | translate }}</td>
+                                <td>{{ 'Инвестор' | translate }}</td>
+                                <td>{{ 'Дебитор' | translate }}</td>
+                                <td>
+                                    {{ 'Сумма задолженности' | translate }}
+                                </td>
+                                <td>
+                                    Срок
+                                </td>
+                                <td>
+                                    {{ 'Размер финансирования' | translate }}
+                                </td>
+                                <td>
+                                    {{ 'Размер ставки' | translate }}
+                                </td>
+                                <td>{{ 'Статус' | translate }}</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let offer of offers">
+                                <td>{{offer.Lot.Id}}</td>
+                                <td>{{offer.Investor.CompanyName}}</td>
+                                <td>{{offer.DZ.Debtor.CompanyName}}</td>
+                                <td>{{offer.Lot.Sum | CurrencyRur}}</td>
+                                <td>срок</td>
+                                <td>{{offer.DZPart}}%</td>
+                                <td>{{offer.YearPercent}}%</td>
+                                <td>{{dict.get_OFFER_STATUS(offer.Status)}}</td>
+                                <td><paper-icon-button icon="search" title="{{ 'Просмотр' | translate }}" (click)="offer_details(offer.Id)"></paper-icon-button></td>
+                            </tr>
+
+                            <!--<tr class="success">
+                                <td>1</td>
+                                <td>1-23</td>
+                                <td>Новые финансовые технологии</td>
+                                <td>100 000</td>
+                                <td>30</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-success">Принято</span></td>
+                            </tr>
+
+
+                            <tr class="danger">
+                                <td>1</td>
+                                <td>1-23</td>
+                                <td>Новые финансовые технологии</td>
+                                <td>100 000</td>
+                                <td>30</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-danger">Принято</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>1-23</td>
+                                <td>Новые финансовые технологии</td>
+                                <td>100 000</td>
+                                <td>30</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-primary">-</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>1-23</td>
+                                <td>Новые финансовые технологии</td>
+                                <td>100 000</td>
+                                <td>30</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-primary">-</span></td>
+                            </tr>-->
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</div>
+   

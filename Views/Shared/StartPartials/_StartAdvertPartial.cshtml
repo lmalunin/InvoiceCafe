@@ -1,0 +1,82 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+
+@inject IViewLocalizer Localizer
+<section class="section-85">
+    <div class="shell">
+        <div class="range">
+            <div class="cel-xs-12 cell-sm-6">
+                <h3>@Localizer["Получите финансирование за 24 часа, хватит ждать оплаты 30-120 дней"]</h3>
+            </div>
+        </div>
+
+        <div class="range">
+            <div class="cel-xs-12 cell-sm-6 cell-md-3 ">
+                <img src="/static/img/svg/circle_33.svg" width="72" height="72">
+                <h5>@Localizer["Заполняете заявку <br>онлайн за 15 минут"]</h5>
+                <p>
+                    @Localizer["Все, что Вам потребуется - это информация о компании. Мы всегда свяжемся с Вами, если возникнут трудности"]
+                </p>
+            </div>
+            <div class="cel-xs-12 cell-sm-6 cell-md-3">
+                <img src="/static/img/svg/circle_66.svg" alt="" width="72" height="72">
+                <h5>@Localizer["Загружаете дебиторскую <br>задолженность"]</h5>
+                <p>
+                    @Localizer["Загрузите задолженность и установите цену. Забудьте про классический факторинг. С нами работать гораздо эффективнее"]
+                </p>
+            </div>
+            <div class="cel-xs-12 cell-sm-6 cell-md-3 section-sm-top-25 section-md-top-0">
+                <img src="/static/img/svg/circle_99.svg" alt="" width="72" height="72">
+                <h5>@Localizer["Получите финансирование <br> за 24 часа"]</h5>
+                <p>
+                    @Localizer["После верификации задолженности, Вы сможете выставить ее на аукцион, где будут предложены лучшие варианты финансирования."]
+                </p>
+            </div>
+
+            <div class="cel-xs-12 cell-sm-6 cell-md-3 section-sm-top-25 section-md-top-0">
+                <blockquote class="quote-variant-1">
+                    <div class="quote-header">
+                        <img src="/static/img/home-5-72x72.jpg" alt="" width="72"
+                             height="72">
+                    </div>
+                    <div class="quote-body">
+                        <q>
+                            InvoiceCafe has been invaluable in allowing us to liquidate cash from longer term payers and reinvest the capital to help grow our business.
+                        </q>
+                    </div>
+                    <div class="quote-meta">
+                        <cite>Victor Larin</cite>
+                        <p class="text-gray-light">(CEO &amp; Founder)</p>
+                    </div>
+                </blockquote>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section data-on="false" data-lg-on="true" class="rd-parallax bg-gray-darker">
+    <div data-speed="0.5" data-type="media" data-url="/static/img/bg-image-2.jpg"
+         class="rd-parallax-layer"></div>
+    <div data-speed="0" data-type="html" class="rd-parallax-layer">
+        <div class="shell text-center text-md-left">
+            <div class="range">
+                <div class="cell-xs-12">
+                    <div class="section-45 section-sm-top-85 section-sm-bottom-75">
+                        <div class="elements-group">
+                            <div class="element-wrap">
+                                <h3 class="">@Localizer["Возьмите оборотные средства под свой контроль"]</h3>
+
+                            </div>
+                            <div class="element-wrap">
+                                <a href="/Start/Register"
+                                   class="btn btn-sm btn-curious-blue-variant-1 min-width-160">
+                                    @Localizer["Попробовать сейчас бесплатно"]
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

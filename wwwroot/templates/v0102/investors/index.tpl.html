@@ -1,0 +1,252 @@
+﻿<template [ngIf]="currentCompany.Status!=5">
+    <section class="section-top-45">
+        <div class="shell">
+            <div class="range">
+                <div class="cell-xs-12">
+                    <ul class="list-progress-bars">
+                        <li>
+                            <div class="clearfix">
+                                <span class="pull-left">{{ 'Настройте учетную запись. Закончите оставшиеся этапы регистрации.' | translate }}</span>
+                                <span class="pull-right">{{ '(заполнено ' + numOfCompletedSteps + ' из 3 шагов)' | translate }} </span>
+                            </div>
+                            <div class="progress-bar progress-bar-horizontal progress-bar-sky-blue no-body progress-bar--animated">
+
+                                <p class="progress-bar__body" [style.width]="numOfCompletedSteps*33 + '%'"></p>
+                            </div>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section-top-55 section-bottom-60">
+        <div class="shell">
+            <div class="range">
+                <div class="cell-xs-12  cell-lg-9">
+                    <div class="range">
+                        <div class="cell-xs-12">
+
+                            <ol class="list-index list-index-lk range">
+                                <li class="cell-xs-12 cell-sm-4">
+                                    <div class="list-item-body">
+                                        <div class="list-index-counter"></div>
+
+
+                                        <span class="icon icon-image">
+                                            <img src="../../static/img/svg/checked-mark.svg" alt="" width="41"
+                                                 height="55">
+                                        </span>
+
+
+                                        <h5>
+                                            Получите одобрение заявки
+                                        </h5>
+                                        <p *ngIf="step1==0">
+                                            Продолжите заполнение регистрационных данных и мы одобрим заявку в
+                                            течение 24 часов
+                                        </p>
+                                        <p *ngIf="step1==1 && currentCompany.Status==1">
+                                            Мы рассматриваем заявку и вынесем решение в
+                                            течение 24 часов
+                                        </p>
+                                        <p *ngIf="currentCompany.Status>=2 && currentCompany.Status<10">
+                                            Ваша заявка одобрена
+                                        </p>
+                                        <p *ngIf="currentCompany.Status>=2 && currentCompany.Status==10">
+                                            Ваша заявка отклонена
+                                        </p>
+
+                                        <div class="list-item-footer">
+                                            <a routerLink="/InvestorHome/Sign" class="btn btn-sm btn-curious-blue btn-block" *ngIf="step1==0">Продолжить</a>
+                                        </div>
+                                    </div>
+
+
+                                </li>
+                                <li class="cell-xs-12 cell-sm-4 offset-top-30 offset-sm-top-0">
+                                    <div class="list-item-body">
+                                        <div class="list-index-counter"></div>
+
+                                        <span class="icon icon-image">
+                                            <img src="../../static/img/svg/pen.svg"
+                                                 alt="" width="41" height="55">
+                                        </span>
+                                        <h5>
+                                            Подтверждение
+                                            ЭЦП
+                                        </h5>
+                                        <p *ngIf="step2==0">
+                                            Необходимо подтвердить ЭЦП
+                                        </p>
+                                        <p *ngIf="step2==1">
+                                            ЭЦП подтверждена
+                                        </p>
+                                        <div class="list-item-footer">
+                                            <div class="btn btn-sm btn-block" *ngIf="step1==0">Подтвердить ЭЦП</div>
+                                            <a routerLink="/InvestorHome/Eds" class="btn btn-sm btn-curious-blue btn-block" *ngIf="step1==1 && step2==0">Подтвердить ЭЦП</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="cell-xs-12 cell-sm-4 offset-top-30 offset-sm-top-0">
+                                    <div class="list-item-body">
+                                        <div class="list-index-counter"></div>
+
+                                        <span class="icon icon-image">
+                                            <img src="../../static/img/svg/pen.svg"
+                                                 alt="" width="41" height="55">
+                                        </span>
+                                        <h5>
+                                            Примите
+                                            правила InvoiceCafe
+                                        </h5>
+                                        <p>
+                                            Необходимо, чтобы один из директоров вашей компании принял правила
+                                            InvoiceCafe
+                                        </p>
+                                        <div class="list-item-footer">
+                                            <div class="btn btn-sm btn-block" *ngIf="step1==0">Принять правила</div>
+                                            <a routerLink="/InvestorHome/Rules" class="btn btn-sm btn-curious-blue btn-block" *ngIf="step1==1 && step3==0">Принять правила</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+                            </ol>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="cell-xs-12 cell-md-4 cell-lg-3 offset-top-60 offset-lg-top-0">
+                    <div class="inset-md-left-15 inset-md-right-15">
+                        <div class="range">
+
+                            <div class="cell-xs-12 cell-sm-6 cell-md-12 child-offset-41">
+
+                                <div class="banner banner-curious-blue">
+                                    <h4>Нужна помощь?</h4>
+                                    <p>
+                                        Свяжитесь с нами по телефону, заказав
+                                        бесплатный звонок
+                                    </p><a href="contacts.html" class="btn btn-sm btn-white-outline">
+                                        Заказать
+                                        звонок
+                                    </a>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<template [ngIf]="currentCompany.Status==5">
+    <section class="section-top-45">
+        <div class="shell">
+
+            <div class="range">
+                <div class="cell-xs-12">
+                    <h3>Последние уведомления:</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-50">
+        <div class="shell">
+            <div class="range offset-top-5">
+                <div class="cell-xs-12">
+                    <div class="ic-alert ic-alert-gray ic-alert-dismissible">
+                        <button type="button" class="ic-close"><span aria-hidden="true">&times;</span></button>
+                        Поставщик принял <a href="" class="link-inline">оффер №23 </a> по <a href="" class="link-inline">лоту №78</a>
+                    </div>
+
+                    <div class="ic-alert ic-alert-gray ic-alert-dismissible">
+                        <button type="button" class="ic-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        На торги добавлены <a href="" class="link-inline">лоты от Сбербанка</a>!
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="section-top-0 section-bottom-60">
+        <div class="shell">
+            <div class="range offset-top-0">
+                <div class="cell-xs-12">
+
+
+                    <ul class="list-index list-index-lk range">
+                        <li class="cell-xs-12 cell-sm-4">
+                            <div class="list-item-body">
+                                <div class="list-index-counter"></div>
+
+
+                                <span class="icon icon-image"> <img src="../../static/img/buy.png" alt="" /></span>
+
+
+                                <h5><a href="#">Торги</a></h5>
+                                <p>
+                                    Большой выбор лотов под вашу инвестиционную стратегию
+                                </p>
+
+                                <div class="list-item-footer">
+                                    <a href="/lk_reg" class="btn btn-sm btn-curious-blue btn-block">Перейти к торгам</a>
+
+                                </div>
+                            </div>
+
+
+                        </li>
+                        <li class="cell-xs-12 cell-sm-4 offset-top-30 offset-sm-top-0">
+                            <div class="list-item-body">
+                                <div class="list-index-counter"></div>
+
+                                <span class="icon icon-image"> <img src="../../static/img/svg/pen.svg" alt="" width="41" height="55" /></span>
+                                <h5><a href="#">Оферты</a></h5>
+                                <p>
+                                    Посмотрите актуальный статус ваших оферт по лотам
+                                </p>
+                                <div class="list-item-footer">
+                                    <a href="#" class="btn btn-sm btn-curious-blue btn-block">Список оферт</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="cell-xs-12 cell-sm-4 offset-top-30 offset-sm-top-0">
+                            <div class="list-item-body">
+                                <div class="list-index-counter"></div>
+
+                                <span class="icon icon-image"> <img src="../../static/img/svg/coin.svg" alt="" width="41" height="55" /></span>
+                                <h5><a href="#">Финансы</a></h5>
+                                <p>
+                                    Узнайте ваш баланс, размер свободного обеспечительного платежа
+                                </p>
+                                <div class="list-item-footer">
+                                    <a href="#" class="btn btn-sm btn-curious-blue btn-block">Мои финансы</a>
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</template>
+

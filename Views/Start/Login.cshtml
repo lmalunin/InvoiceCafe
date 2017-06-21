@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+
+@inject IViewLocalizer Localizer
+
+@{
+    Layout = "_StartLayout";
+}
+<!-- Page Content-->
+<main class="page-content">
+    
+    @await Html.PartialAsync("StartPartials/_StartInnerTitlePartial")
+    <!-- Login form-->
+    <section class="section-50 section-sm-bottom-85">
+        <div class="shell text-center">
+            <div class="range range-xs-center">
+
+                <!-- for demo version
+                <div class="cell-xs-12">
+                    <h3>Log in with demo accounts</h3>
+                </div>
+                <table class="table">
+                    <tr>
+                        <td><strong>Role</strong></td>
+                        <td><strong>Login</strong></td>
+                        <td><strong>Password</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Seller</td>
+                        <td>vg01@cher.ru</td>
+                        <td>12345</td>
+                    </tr>
+                    <tr>
+                        <td>Investor</td>
+                        <td>i1@pisem.net</td>
+                        <td>12345</td>
+                    </tr>
+                </table>
+                    -->
+
+                <div class="cell-xs-10 cell-sm-6 cell-lg-4 offset-top-25">
+                    <div class="inset-sm-left-15 inset-sm-right-25 offset-top-22">
+                        <script>
+                            function submit_click() {
+                                var form = document.getElementById("loginForm");
+                                form.submit();
+                            }
+                        </script>
+
+                        <form asp-controller="Start" asp-action="Login" method="post" class="rd-mailform rd-mailform-label-outside text-left" id="loginForm">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label for="name-or-email" class="form-label-outside">Email</label>
+                                <input type="text" name="Email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-label-outside">@Localizer["Пароль"]</label>
+                                <input type="password" name="Password" class="form-control">
+                            </div>
+                            <div class="offset-top-34">
+                                <button class="btn btn-sm btn-curious-blue-variant-2 btn-block" onclick="submit_click()" type="button">@Localizer["Вход"]</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

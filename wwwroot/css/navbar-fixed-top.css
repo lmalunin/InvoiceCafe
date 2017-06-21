@@ -1,0 +1,10 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+#calendar {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}

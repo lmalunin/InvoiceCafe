@@ -1,0 +1,137 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+
+@inject IViewLocalizer Localizer
+
+@{
+    Layout = "_StartLayout";
+}
+
+
+<main class="page-content">
+    <!-- Main services-->
+
+    @await Html.PartialAsync("StartPartials/_StartInnerTitlePartial")
+
+
+
+    <section class="border-bottom border-bottom-gray-lighter section-55">
+        <div class="shell">
+            <div class="range">
+                <div class="cell-xs-12 cell-md-5 cell-lg-5">
+                    <h3>@Localizer["Видео отзыв клиента"]</h3>
+
+                    <div class="offset-top-25">
+                        <div class="thumbnail thumbnail-video">
+                            <figure>
+                                <img src="/static/img/9.jpg" alt="" width="436" height="288">
+                            </figure><a data-lightbox="iframe" href="https://www.youtube.com/watch?v=_j7-oZ2eQwI" class="play-icon"></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="cell-xs-12 cell-sm-6 cell-md-4 cell-lg-4 section-xs-top-35 section-md-top-0">
+                    <div class="range">
+                        <div class="cel-xs-12 cell-lg-10 cell-lg-preffix-1   offset-xs-top-0 offset-md-top-10">
+
+                            <h4>@Localizer["Проблема:"]</h4>
+                            <h5 class="text-gray">Cash Flow</h5>
+                            <p class="section-xs-bottom-25">
+                                @Localizer["Недостаточно оборотных средств? Оплата клиентов через 30-120 дней тормозит развитие вашего бизнеса, а получение финансирования в банках и факторинговых компаниях совсем не выгодно?"]
+                            </p>
+                            <h4>@Localizer["Решение:"]</h4>
+                            <h5 class="text-primary">InvoiceCafe</h5>
+                            <p>@Localizer["Первый в России онлайн-аукцион по продаже дебиторской задолженности. Здесь вы точно получите лучшие условия финансирования и в кратчайшие сроки."]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell-xs-12 cell-sm-6 cell-md-3 cell-lg-3 section-xs-top-35 section-md-top-0">
+
+                    <div class="inset-lg-left-15 inset-lg-right-15">
+                        <div class="range">
+                            <div class="cell-xs-12 cell-sm-10 cell-md-12 child-offset-41">
+
+                                <div class="banner bg-curious-blue">
+                                    <h4>
+                                        @Localizer["Попробуйте бесплатно"]
+                                    </h4>
+                                    <p>
+
+                                        @Localizer["Возьмите оборотные средства под свой контроль"]
+                                    </p><a href="/Start/Register" class="btn btn-sm btn-white-outline">@Localizer["Попробовать"]</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Html.PartialAsync("StartPartials/_StartAdvertPartial")
+    @await Html.PartialAsync("StartPartials/_StartCalcPartial", "bg-athens-gray")
+
+
+    <section data-on="false" data-lg-on="true" class="section-85 bg-gray-lighter">
+        <div class="shell text-center">
+            <div class="range range-xs-center">
+                <div class="cel-xs-12 cell-sm-6">
+
+                    <h3>@Localizer["Остались вопросы?"]</h3>
+                    <p>
+                        @Localizer["Свяжитесь со специалистом:"]  8-800-707-10-00
+                    </p>
+                    <div class="group offset-top-45">
+                        <a href="#" class="btn btn-sm btn-sm-mod btn-curious-blue-outline min-width-160">FAQ</a>
+                        <a href="/Start/Register" class="btn btn-sm btn-curious-blue-variant-1 min-width-160">
+                            <span class="icon icon-sm fa-weixin"></span>	@Localizer["Чат онлайн"]
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-on="false" data-lg-on="true" class="rd-parallax bg-gray-darker">
+        <div data-speed="0.5" data-type="media" data-url="/static/img/bg-image-2.jpg"
+             class="rd-parallax-layer"></div>
+        <div data-speed="0" data-type="html" class="rd-parallax-layer">
+            <div class="shell text-center text-md-left">
+                <div class="range">
+                    <div class="cell-xs-12">
+                        <div class="section-45 section-sm-top-85 section-sm-bottom-75">
+                            <div class="elements-group">
+                                <div class="element-wrap">
+                                    <h3 class="relative-shift-up-10 noshrink">@Localizer["Пора действовать!"]</h3>
+                                    <div class="hr-wrap offset-top-10 offset-sm-top-15 offset-md-top-0">
+                                        <hr class="hr-md-vertical hr-white">
+                                    </div>
+                                    <p class="big">@Localizer["Возьмите под контроль ваши оборотные средства!"]</p>
+                                </div>
+                                <div class="element-wrap">
+                                    <a href="/Start/Register"
+                                       class="btn btn-sm btn-curious-blue-variant-1 min-width-160">
+                                        @Localizer["Попробовать бесплатно"]
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+</main><!-- Brands carousel-->

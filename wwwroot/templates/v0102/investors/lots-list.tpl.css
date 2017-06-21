@@ -1,0 +1,20 @@
+﻿#investors-lots-list {
+    width: 90%;
+}
+
+#investors-lots-filters {
+    width: 10%;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+#investors-lots-filters paper-card {
+    margin-bottom: 12px;
+}
+
+#investors-lots {
+    height: 800px;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    background: #ff0000;
+}

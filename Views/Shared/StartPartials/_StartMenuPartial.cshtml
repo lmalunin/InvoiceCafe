@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+
+@inject IViewLocalizer Localizer
+<div class="rd-navbar-nav-wrap rd-navbar-nav-dark">
+    <div class="rd-navbar-nav-wrap-inner">
+        <!-- RD Navbar Search-->
+        <div class="rd-navbar-search">
+            <!-- RD Search-->
+            <form action="search-results.html" method="GET"
+                  data-search-live="rd-search-results-live" class="rd-search">
+                <div class="form-group">
+                    <label for="rd-search-form-input" class="form-label">Search...</label><input id="rd-search-form-input" type="text" name="s" autocomplete="off"
+                                                                                                 class="form-control">
+                    <div id="rd-search-results-live" class="rd-search-results-live"></div>
+                </div>
+                <button type="submit" class="rd-search-submit"></button>
+            </form>
+            <div data-rd-navbar-toggle=".rd-navbar-search" class="rd-navbar-search-toggle"></div>
+        </div><!-- RD Navbar Nav-->
+        <ul class="rd-navbar-nav">
+            <li>
+                <a href="/Start/HowItWorks">@Localizer["Как это работает?"]</a><!-- RD Navbar Dropdown-->
+
+            </li>
+            <li>
+                <a href="/Start/Pricing">@Localizer["Стоимость"]</a><!-- RD Navbar Dropdown-->
+
+            </li>
+            <li>
+                <a href="/Start/ForInvestor">@Localizer["Преимущества"]</a><!-- RD Navbar Dropdown-->
+                <ul class="rd-navbar-dropdown">
+                    <li><a href="/Start/Index">@Localizer["Поставщику"]</a></li>
+                    <li><a href="/Start/ForInvestor">@Localizer["Инвестору"]</a></li>
+                    <li><a href="/Start/ForDebtor">@Localizer["Дебитору"]</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/Start/About">@Localizer["Еще"]</a>
+                <ul class="rd-navbar-dropdown">
+                    <li><a href="/Start/About">@Localizer["О проекте"]</a></li>
+                    <li><a href="/Start/Partners">@Localizer["Партнеры"]</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/Start/Login">@Localizer["Вход"]</a><!-- RD Navbar Dropdown-->
+
+            </li>
+            <li><a href="/Start/Register?Seller">@Localizer["Регистрация"]</a></li>
+        </ul>
+    </div>
+</div>

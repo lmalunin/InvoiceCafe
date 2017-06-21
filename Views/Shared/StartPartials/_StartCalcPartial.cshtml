@@ -1,0 +1,96 @@
+﻿@model string
+
+@using Microsoft.AspNetCore.Mvc.Localization;
+
+@inject IViewLocalizer Localizer
+<section class="@Model section-top-55 section-bottom-55 section-lg-bottom-0">
+    <div class="shell">
+        <div class="range range-md-reverse">
+            <div class="cell-xs-12 cell-sm-7 cell-md-5 hidden-sm hidden-md hidden-xs ">
+                <figure class="image-wrap image-wrap-1 image-wrap-1-calc bg-athens-gray-inner bg-athens-gray-inner-1">
+                    <img src="/static/img/girl.png" alt="" width="446" height="558" />
+                </figure>
+            </div>
+
+            <div class="cell-xs-12 cell-lg-7 shift-up-36 shift-up-sm-0">
+
+
+                <h4 class="text-light">
+                    @Localizer["Наша комиссия <b class='text-bold'>максимально прозрачна.</b> <br>Вы всегда знаете сколько и за что платите!"]
+                </h4>
+                <div class="range offset-top-45 calc-slider-1 ">
+                    <div class="cell-xs-12 cell-sm-6 ">
+
+                        <div class="">
+                            <p class="">
+                                @Localizer["Размер задолженности"]
+                            </p>
+                            <h5 class="text-regular value offset-top-10"></h5>
+                            <div class="slider offset-top-10"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="cell-xs-12 cell-sm-5 inset-lg-left-50">
+                        <h3 class="text-light text-primary offset-top-0 offset-sm-top-30 number">
+                            252 976
+                        </h3>
+                        <p class="offset-top-0">
+                            @Localizer["Получите в считанные часы"]
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="range offset-top-45 calc-slider-2  ">
+                    <div class="cell-xs-12 cell-sm-6 ">
+
+                        <div class="">
+                            <p class="">
+                                @Localizer["Ставка финансирования"]
+                            </p>
+                            <h5 class="text-regular value offset-top-10"></h5>
+                            <div class="slider offset-top-10"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="cell-xs-12 cell-sm-4 inset-lg-left-50">
+                        <h3 class="text-light text-primary offset-top-0 offset-sm-top-30 number">
+                            43 743
+                        </h3>
+                        <p class="offset-top-0">
+                            @Localizer["Вы получите, когда Ваш клиент проведет оплату"]
+                        </p>
+                    </div>
+                </div>
+
+                <div class="range offset-top-45 calc-slider-3  ">
+                    <div class="cell-xs-12 cell-sm-6 ">
+
+                        <div class="">
+                            <p class="">
+                                @Localizer["Срок оплаты"]
+                            </p>
+                            <h5 class="text-regular value offset-top-10"></h5>
+                            <div class="slider offset-top-10"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="cell-xs-12 cell-sm-4 inset-lg-left-50">
+                        <h3 class="text-light  offset-top-0 offset-sm-top-30 number">
+                            4 282
+                        </h3>
+                        <p class="offset-top-0">
+                            @Localizer["Размер комиссии"]
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</section>

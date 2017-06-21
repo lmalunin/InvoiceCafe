@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="wide wow-animation">
+<head>
+    <!-- Site Title-->
+    <title>Home</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="~/images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,300italic">
+    <link rel="stylesheet" href="~/css/style.css">
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="~/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+    <!-- Page-->
+    <div class="page">
+        <!-- Page Header-->
+        <header class="page-head">
+            <!-- RD Navbar-->
+            <div class="rd-navbar-wrap">
+                <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-lg-stick-up-clone="true" data-md-stick-up-offset="157px" data-lg-stick-up-offset="157px" class="rd-navbar rd-navbar-default">
+                    <div class="rd-navbar-inner">
+                        <!-- RD Navbar Panel-->
+                        <div class="rd-navbar-panel">
+                            <!-- RD Navbar Toggle-->
+                            <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle"><span></span></button>
+                            <!-- RD Navbar Brand--><a href="index.html" class="rd-navbar-brand">
+                                <span class="text-thin text-primary">[</span>
+                                <div class="brand-name"><span class="text-ubold text-river-bed">Fin</span><span class="text-thin">Expert</span></div><span class="text-thin text-primary">]</span>
+                            </a>
+                        </div>
+                        <div class="rd-navbar-aside">
+                            <div data-rd-navbar-toggle=".rd-navbar-aside" class="rd-navbar-aside-toggle"><span></span></div>
+                            <div class="rd-navbar-aside-content">
+                                <ul class="block-wrap-list">
+                                    <li class="block-wrap">
+                                        <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-sm">
+                                            <div class="unit-left">
+                                                <figure>
+                                                    <img src="~/images/icon-clock-32x32.png" alt="" width="32" height="32" />
+                                                </figure>
+                                            </div>
+                                            <div class="unit-body">
+                                                <address class="contact-info"><span class="text-bold text-gray-base">Mon - Sat: 9:00 - 18:00</span><span>Sunday CLOSED</span></address>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="block-wrap">
+                                        <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-sm">
+                                            <div class="unit-left">
+                                                <figure>
+                                                    <img src="~/images/icon-map-marker-25x33.png" alt="" width="25" height="33" />
+                                                </figure>
+                                            </div>
+                                            <div class="unit-body">
+                                                <address class="contact-info"><a href="#"><span class="text-bold text-gray-base">267 Park Avenue</span><span>New York, NY 90210</span></a></address>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="block-wrap">
+                                        <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-sm">
+                                            <div class="unit-left">
+                                                <figure>
+                                                    <img src="~/images/icon-phone-28x29.png" alt="" width="28" height="29" />
+                                                </figure>
+                                            </div>
+                                            <div class="unit-body">
+                                                <address class="contact-info"><span class="text-bold"><a href="callto:#" class="text-gray-base">(123)&nbsp;45678910</a></span><span><a href="mailto:#">info@demolink.org</a></span></address>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="bg-athens-gray bg-wrap">
+                                    <div class="block-container">
+                                        <div class="block-left">
+                                            <p class="rd-navbar-fixed--hidden small">@ViewBag.Hello</p>
+                                        </div>
+                                        <div class="block-right">
+                                            <ul class="list-inline">
+                                                <li><a href="#" class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-facebook"></a></li>
+                                                <li><a href="#" class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-twitter"></a></li>
+                                                <li><a href="#" class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-google-plus"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @await Html.PartialAsync("_StartMenuPartial")
+                    </div>
+                </nav>
+            </div>
+        </header>
+       
+        @RenderBody()
+        <!-- Page Footer-->
+        <footer class="page-foot">
+            <section class="section-45 section-sm-75 bg-river-bed">
+                <div class="shell text-center text-sm-left">
+                    <div class="range range-xs-center">
+                        <div class="cell-xs-12 cell-sm-6 cell-lg-3">
+                            <a href="index.html" class="brand offset-top-5">
+                                <span class="text-thin text-primary">[</span>
+                                <div class="brand-name"><span class="text-ubold">Fin</span><span class="text-thin">Expert</span></div><span class="text-thin text-primary">]</span>
+                            </a>
+                            <p class="offset-sm-top-34">
+                                Welcome to the leading company
+                                delivering services that combine
+                                quality, reliability and compliance!
+                            </p>
+                            <div class="elements-group-1 offset-top-22">
+                                <span class="small text-italic">Follow Us:</span>
+                                <ul class="list-inline">
+                                    <li><a href="#" class="icon icon-xxs icon-circle icon-dark icon-white-filled fa-facebook"></a></li>
+                                    <li><a href="#" class="icon icon-xxs icon-circle icon-dark icon-white-filled fa-twitter"></a></li>
+                                    <li><a href="#" class="icon icon-xxs icon-circle icon-dark icon-white-filled fa-google-plus"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="cell-xs-12 cell-sm-6 cell-lg-3 offset-top-45 offset-sm-top-0">
+                            <h4>Navigation</h4>
+                            <hr class="hr-variant-1">
+                            <nav class="footer-nav-wrap text-xs-left">
+                                <div class="footer-nav-column">
+                                    <ul class="footer-nav">
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contacts.html">Contacts</a></li>
+                                        <li><a href="typography.html">Typography</a></li>
+                                    </ul>
+                                </div>
+                                <div class="footer-nav-column">
+                                    <ul class="footer-nav">
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="careers.html">Careers</a></li>
+                                        <li><a href="team.html">Our team</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="cell-xs-12 cell-sm-6 cell-lg-3 offset-top-45 offset-lg-top-0">
+                            <h4>Contact info</h4>
+                            <hr class="hr-variant-1">
+                            <address class="contact-info reveal-inline-block">
+                                <ul class="contact-info-list">
+                                    <li class="unit unit-horizontal unit-spacing-md">
+                                        <div class="unit-left"><span class="icon icon-sm icon-picton-blue fa-phone"></span></div>
+                                        <div class="unit-body"><span class="text-bold"><a href="callto:#">(123) 45678910</a></span></div>
+                                    </li>
+                                    <li class="unit unit-horizontal unit-spacing-md">
+                                        <div class="unit-left"><span class="icon icon-sm icon-picton-blue fa-envelope-o"></span></div>
+                                        <div class="unit-body"><span><a href="mailto:#">info@demolink.org</a></span></div>
+                                    </li>
+                                    <li class="unit unit-horizontal unit-spacing-md">
+                                        <div class="unit-left"><span class="icon icon-sm icon-picton-blue fa-clock-o"></span></div>
+                                        <div class="unit-body"><span>Mon - Sat: 9:00 - 18:00</span></div>
+                                    </li>
+                                    <li class="unit unit-horizontal unit-spacing-md">
+                                        <div class="unit-left"><span class="icon icon-sm icon-picton-blue fa-map-marker"></span></div>
+                                        <div class="unit-body"><span><a href="#"><span class="text-bold">267 Park Avenue</span><span>New York, NY 90210</span></a></span></div>
+                                    </li>
+                                </ul>
+                            </address>
+                        </div>
+                        <div class="cell-xs-12 cell-sm-6 cell-lg-3 offset-top-45 offset-lg-top-0">
+                            <h4>Subscribe</h4>
+                            <hr class="hr-variant-1">
+                            <p>Get latest updates and offers.</p>
+                            <!-- RD Mailform-->
+                            <form data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php" class="rd-mailform rd-mailform-inline max-width-300">
+                                <div class="form-group">
+                                    <label for="footer-contact-email" class="form-label">E-Mail</label>
+                                    <input id="footer-contact-email" type="email" name="email" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-xs btn-picton-blue">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section-14 bg-ebony-clay">
+                <div class="shell text-center">
+                    <p class="rights">
+                        &#169;&nbsp;<span id="copyright-year"></span>&nbsp;FinExpert.<a href="privacy.html">Privacy policy</a>
+                        More <a rel="nofollow" href="http://www.templatemonster.com/category/financial-advisor-website-templates/" target="_blank">Financial Advisor Website Templates at TemplateMonster.com</a>
+                    </p>
+                </div>
+            </section>
+        </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <div id="form-output-global" class="snackbars"></div>
+    <!-- Javascript-->
+    <script src="~/libs/tmpl/core.min.js"></script>
+    <script src="~/libs/tmpl/script.js"></script>
+</body>
+</html>

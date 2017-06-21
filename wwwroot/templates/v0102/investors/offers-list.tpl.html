@@ -1,0 +1,113 @@
+﻿    <section class="border-bottom border-bottom-gray-lighter">
+        <div class="shell">
+            <div class="range">
+                <div class="cell-xs-12">
+                    <ul class="breadcrumbs-custom">
+                        <li><a routerLink="/InvestorHome/Index">{{ 'Кабинет инвестора' | translate }}</a></li>
+                        <li class="active">{{ 'Оферты' | translate }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="shell">
+
+
+    <section class="section-50 page-rules page-offers-list">
+        <h3>
+            Список офферов
+        </h3>
+
+        <div class="range offset-top-25">
+
+            <div class="cell-xs-12">
+                <div class="ic-table-responsive">
+                    <table class="ic-table">
+                        <thead>
+                            <tr>
+                                <td>№ лота</td>
+                                <td>Сумма лота</td>
+                                <td>Поставщик</td>
+                                <td>Дебитор</td>
+
+                                <td>
+                                    Размер
+                                    финансирования
+                                </td>
+                                <td>
+                                    Размер
+                                    ставки
+                                </td>
+                                <td>Статус</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let offer of offers" [class.success]="offer.Status==10" [class.danger]="offer.Status==20">
+                                <td>{{offer.Lot.Id}}</td>
+                                <td>{{offer.Lot.Sum | CurrencyRur}} Р</td>
+                                <td>{{offer.DZ.Supplier.CompanyName}}</td>
+                                <td>{{offer.DZ.Debtor.CompanyName}}</td>
+                                <td><span class="text-regular text-primary">{{offer.DZPart}}%</span></td>
+                                <td><span class="text-regular text-primary">{{offer.YearPercent}}%</span></td>
+                                <td><span class="text-regular" [class.text-success]="offer.Status==10" [class.text-danger]="offer.Status==20">{{dict.get_OFFER_STATUS(offer.Status)}}</span></td>
+                                <!--<td><paper-icon-button icon="search" title="{{ 'Просмотр' | translate }}" (click)="offer_details(offer.Id)"></paper-icon-button></td>-->
+                            </tr>
+
+                            <!--<tr class="success">
+                                <td>155</td>
+                                <td>1 000  000 Р</td>
+                                <td>Новые технологии</td>
+                                <td>Новые финансовые технологии</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-success">Оплачено</span></td>
+                            </tr>
+
+
+                            <tr class="danger">
+                                <td>155</td>
+                                <td>1 000  000 Р</td>
+                                <td>Новые технологии</td>
+                                <td>Новые финансовые технологии</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-danger">Отказано</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>155</td>
+                                <td>1 000  000 Р</td>
+                                <td>Новые технологии</td>
+                                <td>Новые финансовые технологии</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-primary">На ожидании</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>155</td>
+                                <td>1 000  000 Р</td>
+                                <td>Новые технологии</td>
+                                <td>Новые финансовые технологии</td>
+                                <td><span class="text-regular text-primary">80 %</span></td>
+                                <td><span class="text-regular text-primary">12 %</span></td>
+                                <td><span class="text-regular text-primary">На ожидании</span></td>
+                            </tr>-->
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+</div>

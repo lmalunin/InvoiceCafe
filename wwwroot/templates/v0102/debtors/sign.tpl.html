@@ -1,0 +1,138 @@
+﻿<section class="border-bottom border-bottom-gray-lighter">
+    <div class="shell">
+        <div class="range">
+            <div class="cell-xs-12">
+                <ul class="breadcrumbs-custom">
+                    <li><a routerLink="/DebtorHome/Index">{{ 'Кабинет дебитора' | translate }}</a></li>
+                    <li class="active">{{ 'Соглашение о присоединении' | translate }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-top-0 section-bottom-60">
+    <form>
+        <ul>
+            <li *ngFor="let message of errorMessages" class="alert-danger">{{message}}</li>
+        </ul>
+        <h5><span class="badge">1</span> {{ 'Документы' | translate }}</h5>
+
+        <template ngFor let-item [ngForOf]="dict.SignFormDocuments">
+            <div class="row" *ngIf="item.ShowInInputList">
+                <div class="col-md-4">
+                    <p>{{item.DocTitle}}</p>
+                </div>
+                <div class="col-md-6">
+                    <vaadin-upload max-files="1" max-file-size="20000000"
+                                   [id]="item.DocFieldName"
+                                   target="/api/service/uploadfile"
+                                   method="POST"
+                                   accept=".pdf,image/*"
+                                   timeout=300000
+                                   (file-reject)="upl_reject($event)" (upload-success)="after_file_upload($event)"
+                                   [i18n]="_upl_local">
+
+                        <div class="drop-label">
+                            <iron-icon icon="file-upload"></iron-icon>
+                            {{ 'Перетяните файл сюда.. (до' | translate }} {{item.MaxFileSize/1000000}}{{ 'Мб)' | translate }}
+                        </div>
+                    </vaadin-upload>
+                </div>
+            </div>
+        </template>
+
+        <div class="row" *ngIf="currentCompany.LegalForm=='OAO' || currentCompany.LegalForm=='ZAO'">
+            <div class="col-md-4">
+                <p>{{ 'Выписка из реестра акционеров, выписки по счетам депо номинальных держателей' | translate }}</p>
+            </div>
+            <div class="col-md-6">
+                <vaadin-upload max-files="1" max-file-size="10000000"
+                               id="ScanURL_vypiska"
+                               target="/api/service/uploadfile"
+                               method="POST"
+                               accept=".pdf,image/*"
+                               timeout=300000
+                               (upload-request)="before_file_upload($event)" (file-reject)="upl_reject($event)" [i18n]="_upl_local">
+                    <div class="drop-label">
+                        <iron-icon icon="file-upload"></iron-icon>
+                        {{ 'Перетяните файл сюда.. (до' | translate }}  100{{ 'Мб)' | translate }}
+                    </div>
+                </vaadin-upload>
+            </div>
+        </div>
+
+        <h5><span class="badge">2</span> {{ 'Руководитель' | translate }}</h5>
+
+        <div class="row">
+            <div class="col-md-4">
+                <paper-input label="{{ 'ФИО' | translate }}" [(ngModel)]="model.DirectorFullName" name="DirectorFullName"></paper-input>
+            </div>
+            <div class="col-md-4">
+                <vaadin-date-picker label="{{ 'Дата рождения' | translate }}" [(value)]="model.DirectorBDate" id="DirectorBDate" name="DirectorBDate" [i18n]="_dp_local"></vaadin-date-picker>
+            </div>
+            <div class="col-md-4">
+                <paper-input label="{{ 'Место рождения' | translate }}" [(ngModel)]="model.DirectorPlaceOfBirth" name="DirectorPlaceOfBirth"></paper-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label id="label1">{{ 'Гражданство' | translate }}:</label>
+                <paper-radio-group aria-labelledby="label1" selected="RF_Yes">
+                    <paper-radio-button name="RF_Yes" (click)="set_citizenship('RF_Yes')">{{ 'РФ' | translate }}</paper-radio-button>
+                    <paper-radio-button name="RF_No" (click)="set_citizenship('RF_No')">{{ 'другое' | translate }}</paper-radio-button>
+                </paper-radio-group>
+            </div>
+
+
+            <div class="col-md-4" *ngIf="model.DirectorCitizenship != 'РФ' && model.DirectorCitizenship != 'Russia'">
+                <paper-input label="{{ 'Гражданство' | translate }}" [(ngModel)]="model.DirectorCitizenship" name="DirectorCitizenship"></paper-input>
+            </div>
+            <div class="col-md-4" *ngIf="model.DirectorCitizenship != 'РФ' && model.DirectorCitizenship != 'Russia'">
+                {{ 'Миграционные документы по трудоустройству' | translate }}
+                <vaadin-upload max-files="1" max-file-size="20000000"
+                               id="ScanURL_migrdocs"
+                               target="/api/service/uploadfile"
+                               method="POST"
+                               accept=".pdf,image/*"
+                               timeout=300000
+                               (upload-request)="before_file_upload($event)" (file-reject)="upl_reject($event)" [i18n]="_upl_local">
+                    <div class="drop-label">
+                        <iron-icon icon="file-upload"></iron-icon>
+                        {{ 'Перетяните файл сюда.. (до' | translate }} 20{{ 'Мб)' | translate }}
+                    </div>
+                </vaadin-upload>
+            </div>
+        </div>
+
+        <h5><span class="badge">3</span> {{ 'Тарифный план' | translate }}</h5>
+        <paper-dropdown-menu label="{{ 'Тарифный план' | translate }}">
+            <paper-listbox class="dropdown-content">
+                <paper-item on-click="set_tarif(1)">{{ 'ТПП 1.0' | translate }}</paper-item>
+                <paper-item on-click="set_tarif(2)">{{ 'ТПП 2.0' | translate }}</paper-item>
+                <paper-item on-click="set_tarif(3)">{{ 'ТПП 3.0' | translate }}</paper-item>
+            </paper-listbox>
+        </paper-dropdown-menu>
+
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-3">
+                <paper-button raised on-click="submit_click()">{{ 'Зарегистрировать' | translate }}</paper-button>
+            </div>
+            <div class="col-md-3" *ngIf="showProgress">
+                <paper-progress indeterminate></paper-progress>
+            </div>
+        </div>
+    </form>
+</section>
+
+    <!--<paper-dialog id="successDialog" modal>
+        <h2>Завление успешно зарегистрировано!</h2>
+        <p>После авторизации администратором Вы можете приступить к работе.</p>
+        <div class="buttons">
+            <paper-button dialog-confirm autofocus routerLink="/SupplierHome/Index">Ясно</paper-button>
+        </div>
+    </paper-dialog>-->
+
+<paper-toast id="theToast"></paper-toast>

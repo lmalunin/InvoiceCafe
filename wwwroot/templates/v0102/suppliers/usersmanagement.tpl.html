@@ -1,0 +1,49 @@
+﻿<div class="shell">
+    <section class="section-50 page-rules page-offers-list">
+        <h3>
+            Список пользователей
+        </h3>
+
+        <div class="range">
+
+            <div class="cell-xs-12">
+                <div class="table-responsive">
+                    <table class="ic-table">
+                        <thead>
+                            <tr>
+                                <td>{{ 'Код' | translate }}</td>
+                                <td>{{ 'Имя' | translate }}</td>
+                                <td>{{ 'Место рождения' | translate }}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let person of _persons" (click)="navigate_to_update(person.Id)">
+                                <td>{{person.Id}}</td>
+                                <td>{{person.FullName}}</td>
+                                <td>{{person.PlaceOfBirth}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="range">
+            <div class="cell-xs-12">
+                <button class="btn btn-curious-blue pull-right" (click)="navigate_to_add()">{{ 'Добавить пользователя' | translate }}</button>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+<style>
+    td:hover {
+        color: red;
+        cursor: pointer;
+        cursor: hand;
+    }
+</style>

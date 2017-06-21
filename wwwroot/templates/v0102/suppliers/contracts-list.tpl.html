@@ -1,0 +1,63 @@
+﻿<section class="border-bottom border-bottom-gray-lighter">
+    <div class="shell">
+        <div class="range">
+            <div class="cell-xs-12">
+                <ul class="breadcrumbs-custom">
+                    <li><a routerLink="/SupplierHome/Index">{{ 'Кабинет поставщика' | translate }}</a></li>
+                    <li class="active">{{ 'Список контрактов' | translate }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="shell">
+
+
+    <section class="section-50 page-rules page-offers-list">
+        <h3>
+            Список Контрактов
+        </h3>
+
+        <div class="range">
+
+            <div class="cell-xs-12">
+                <div class="ic-table-responsive">
+                    <table class="ic-table">
+                        <thead>
+                            <tr>
+                                <th>{{ 'Номер' | translate }}</th>
+                                <th>{{ 'Название' | translate }}</th>
+                                <th>{{ 'Дата начала' | translate }}</th>
+                                <th>{{ 'Дата окончания' | translate }}</th>
+                                <th>{{ 'Дебитор' | translate }}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let contract of contracts">
+                                <td>{{contract.ContractNumber}}</td>
+                                <td>{{contract.ContractName}}</td>
+                                <td>{{contract.DateFrom | date:'shortDate'}}</td>
+                                <td>{{contract.DateTo | date:'shortDate'}}</td>
+                                <td>{{contract.Debtors[0].CompanyName}}</td>
+                                <td><paper-icon-button icon="search" title="{{ 'Просмотр' | translate }}" (click)="contract_details(contract.Guid)"></paper-icon-button></td>
+                                <td><paper-icon-button icon="create" title="{{ 'Редактирование' | translate }}" (click)="contract_update(contract.Guid)"></paper-icon-button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="range">
+            <div class="cell-xs-12">
+                <button class="btn btn-curious-blue pull-lg-right" (click)="navigate_to_add()">Добавить контракт</button>
+            </div>
+        </div>
+    </section>
+
+
+</div>

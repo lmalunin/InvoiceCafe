@@ -1,0 +1,31 @@
+import { CompanyViewModel } from './CompanyViewModel';
+import { PersonViewModel } from './PersonViewModel';
+import { DZViewModel } from './DZViewModel';
+export class ContractViewModel {
+    public Id: number;
+    public Guid: string;
+    public ContractType: number;
+    public ContractName: string;
+    public ContractNumber: string;
+    public Supplier: CompanyViewModel;
+    public SupplierSigner: PersonViewModel;
+    public Debtors: CompanyViewModel[];
+    public DebtorsSummary: string;
+    public DebtorSigners: PersonViewModel[];
+    public DateOfSign: Date;
+    public DateFrom: Date;
+    public DateTo: Date;
+    public Duration: number;
+    public DaysCount: string;
+    public DebtorObligationsDate: Date;
+    public SupplierDeliveryDate: Date;
+    public PropertyRightsTransferDate: Date;
+    public CounterClaimTerms: string;
+    public MoneyBackTerms: string;
+    public AcceptanceTerms: string;
+    public PaymentTerms: string;
+    public ContractMatter: string;
+    public DeliveryType: number;
+    public IsCessionAcceptable: boolean;
+    public DZ: DZViewModel[];
+}

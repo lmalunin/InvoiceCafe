@@ -1,0 +1,56 @@
+﻿<section class="border-bottom border-bottom-gray-lighter">
+    <div class="shell">
+        <div class="range">
+            <div class="cell-xs-12">
+                <ul class="breadcrumbs-custom">
+                    <li><a routerLink="/SupplierHome/Index">{{ 'Кабинет поставщика' | translate }}</a></li>
+                    <li class="active">{{ 'Список дебиторов' | translate }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="shell">
+
+
+    <section class="section-50 page-rules page-offers-list">
+        <h3>
+            Список Дебиторов
+        </h3>
+
+        <div class="range">
+
+            <div class="cell-xs-12">
+                <div class="table-responsive">
+                    <table class="ic-table">
+                        <thead>
+                            <tr>
+                                <td>{{ 'Название компании' | translate }}</td>
+                                <td>{{ 'Организационная форма' | translate }}</td>
+                                <td>{{ 'ИНН' | translate }}</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let debtor of debtors">
+                                <td>{{debtor.CompanyName}}</td>
+                                <td>{{debtor.LegalForm}}</td>
+                                <td>{{debtor.INN}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="range">
+            <div class="cell-xs-12">
+                <button class="btn btn-curious-blue pull-right" (click)="navigate_to_add()">{{ 'Добавить дебитора' | translate }}</button>
+            </div>
+        </div>
+    </section>
+
+
+</div>

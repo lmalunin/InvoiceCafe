@@ -1,0 +1,104 @@
+﻿<!-- Page Header-->
+<header class="page-head">
+    <!-- RD Navbar-->
+    <div class="rd-navbar-wrap">
+        <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed"
+             data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static"
+             data-lg-stick-up-clone="true" data-md-stick-up-offset="157px" data-lg-stick-up-offset="157px"
+             class="rd-navbar rd-navbar-default">
+            <div class="rd-navbar-inner">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel rd-navbar-panel-private">
+                    <!-- RD Navbar Toggle-->
+                    <button data-rd-navbar-toggle=".rd-navbar-nav-wrap" class="rd-navbar-toggle">
+                        <span></span>
+                    </button><!-- RD Navbar Brand--><a href="/DebtorHome/Index" class="rd-navbar-brand">
+                        <div class="brand-image brand-image-p">
+                            <img src="/static/img/svg/logo.svg" alt="" width="199" height="35">
+                        </div>
+                    </a>
+                </div>
+                <div class="rd-navbar-aside">
+                    <div data-rd-navbar-toggle=".rd-navbar-aside" class="rd-navbar-aside-toggle"><span></span></div>
+                    <div class="rd-navbar-aside-content">
+                        <ul class="block-wrap-list">
+                            <li class="block-wrap">
+                                <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-sm">
+                                    <div class="unit-left">
+                                        <figure>
+                                            <img src="/static/img/icon-phone-28x29.png" alt="" width="28"
+                                                 height="29" />
+                                        </figure>
+                                    </div>
+                                    <div class="unit-body">
+                                        <address class="contact-info">
+                                            <span class="text-bold">
+                                                <a href="callto:#"
+                                                   class="text-gray-base">8-800-707-10-00</a>
+                                            </span><span>
+                                                <a href="mailto:info@invoice.cafe">info@invoice.cafe</a>
+                                            </span>
+                                        </address>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="block-wrap">
+
+                                <div class="unit unit-sm-horizontal unit-align-center unit-middle unit-spacing-sm">
+
+                                    <div class="unit-body">
+                                        <a href="" class="btn btn-sm btn-curious-blue-outline">{{ 'Заказать звонок' | translate}}</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rd-navbar-nav-wrap rd-navbar-nav-dark">
+                    <div class="rd-navbar-nav-wrap-inner">
+                        <!-- RD Navbar Search-->
+                        <div class="pull-right">
+
+
+
+
+                            <ul class="rd-navbar-nav">
+                                <li>
+                                    <a href="/AdminHome/Index">{{userName}}</a><!-- RD Navbar Dropdown-->
+
+                                </li>
+                                <li>
+                                    <a href="/Start/Logout"><span class="icon icon-image"> <img src="/static/img/svg/exit.svg" alt="" width="41" height="55"></span></a><!-- RD Navbar Dropdown-->
+
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+
+                        <!-- RD Navbar Nav-->
+
+                        <ul class="rd-navbar-nav">
+                            <li>
+                                <a routerLink="/AdminHome/Index">{{ 'Главная' | translate }}</a><!-- RD Navbar Dropdown-->
+
+                            </li>
+                            <li class="rd-navbar--has-dropdown rd-navbar-submenu">
+                                <a href="#">{{ 'Заявки' | translate }}</a><!-- RD Navbar Dropdown-->
+                                <ul class="rd-navbar-dropdown">
+                                    <li><a routerLink="/AdminHome/Companies">{{ 'Заявки на присоединение' | translate }}</a></li>
+                                    <li><a routerLink="/AdminHome/DZ">{{ 'Верификация ДЗ' | translate }}</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="page-content">
+    <router-outlet></router-outlet>
+</main>

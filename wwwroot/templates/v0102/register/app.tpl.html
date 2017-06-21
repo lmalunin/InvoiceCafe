@@ -1,0 +1,301 @@
+﻿<div class="section-50 hidden-xs hidden-sm">
+    <div class="shell">
+        <div class="range range-sm-center">
+            <div class="cell-xs-12 cell-lg-10">
+                <div class="reg_btns">
+                    <button [class.active]="model.AgentType==1" (click)="setAgentType(1)" [disabled]="currentStep==3">
+                        Стать поставщиком
+                    </button>
+                    <button [class.active]="model.AgentType==2" (click)="setAgentType(2)" [disabled]="currentStep==3">
+                        Стать дебитором
+                    </button>
+                    <button [class.active]="model.AgentType==3" (click)="setAgentType(3)" [disabled]="currentStep==3">
+                        Стать инвестором
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section-bottom-55 hidden-xs hidden-sm">
+    <div class="shell">
+        <div class="range">
+            <div class="cell-xs-12 cell-md-preffix-1 cell-md-10">
+                <div class="reg-steps">
+
+                    <div class="b b1" [class.active]="currentStep>=2"></div>
+                    <div class="b b2" [class.active]="currentStep>=3"></div>
+
+                    <div class="s s1 active">
+                        <div class="r r1 active"></div>
+                        <div class="t">
+                            Детали о компании
+                        </div>
+                    </div>
+                    <div class="s s2 " [class.active]="currentStep>=2">
+                        <div class="r r2" [class.active]="currentStep>=2"></div>
+                        <div class="t" [class.active]="currentStep>=2">
+                            О представителе
+                        </div>
+                    </div>
+                    <div class="s s3" [class.active]="currentStep>=3">
+                        <div class="r r3" [class.active]="currentStep>=3"></div>
+                        <div class="t" [class.active]="currentStep>=3">
+                            Окончание регистрации
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section-45">
+    <div class="shell">
+        <div class="range">
+
+
+            <ul>
+                <li *ngFor="let message of errorMessages" class="alert-danger">{{message}}</li>
+            </ul>
+
+            <!-- 1 -->
+            <div class="range hidden-md hidden-lg" *ngIf="currentStep==1">
+                <div class="cell-xs-12 text-center">
+                    <h3>
+                        Детали о компании
+                    </h3>
+                </div>
+            </div>
+            <div class="range" *ngIf="currentStep==1">
+
+
+                <div class="cell-xs-12 cell-sm-6 " *ngIf="model.AgentType==1">
+                    <h3>InvoiceCafe подходит вам, если:</h3>
+                    <ul class="list-marked offset-top-19">
+                        <li>Преимущество для поставщика 1</li>
+                        <li>Преимущество для поставщика 2</li>
+                        <li>Преимущество для поставщика 3</li>
+                    </ul>
+                </div>
+                <div class="cell-xs-12 cell-sm-6 " *ngIf="model.AgentType==2">
+                    <h3>InvoiceCafe подходит вам, если:</h3>
+                    <ul class="list-marked offset-top-19">
+                        <li>Преимущество для дебитора 1</li>
+                        <li>Преимущество для дебитора 2</li>
+                        <li>Преимущество для дебитора 3</li>
+                    </ul>
+                </div>
+                <div class="cell-xs-12 cell-sm-6 " *ngIf="model.AgentType==3">
+                    <h3>InvoiceCafe подходит вам, если:</h3>
+                    <ul class="list-marked offset-top-19">
+                        <li>Преимущество для инвестора 1</li>
+                        <li>Преимущество для инвестора 2</li>
+                        <li>Преимущество для инвестора 3</li>
+                    </ul>
+                </div>
+
+                <div class="cell-xs-12 cell-sm-6">
+
+                    <div class="range">
+                        <div class="cell-xs-12">
+                            <input type="hidden" value="debit" name="f_type">
+
+                            <div class="form-group">
+                                <paper-input [(ngModel)]="model.INN" name="INN" label="{{ 'ИНН' | translate}}" char-counter maxlength="12"></paper-input>
+                            </div>
+                            <div class="form-group clearfix" *ngIf="model.AgentType==2">
+                                <button type="button"
+                                        class="btn btn-sm btn-curious-blue find_inn pull-right" (click)="checkINN()">
+                                    Найти в базе ИНН
+
+                                </button>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <vaadin-combo-box id="cmbLegalForm" label="{{ 'Организационная форма' | translate }}"
+                                                  [items]="dict.LEGAL_FORM"
+                                                  item-label-path="Value"
+                                                  item-value-path="Id"
+                                                  (selected-item-changed)="setLegalForm($event.detail.value)">
+                                </vaadin-combo-box>
+                            </div>
+
+                            <div class="form-group">
+                                <paper-input label="{{ 'Наименование организации/ФИО ИП' | translate }}" [(ngModel)]="model.CompanyName" name="CompanyName"></paper-input>
+                            </div>
+
+
+                            <div class="form-group" *ngIf="model.LegalForm!=1">
+                                <paper-input [(ngModel)]="model.OGRN" name="OGRN" label="{{ 'ОГРН' | translate }}" char-counter maxlength="13"></paper-input>
+                            </div>
+                            <div class="form-group" *ngIf="model.LegalForm==1">
+                                <paper-input [(ngModel)]="model.OGRNIP" name="OGRNIP" label="{{ 'ОГРНИП' | translate }}" char-counter maxlength="15"></paper-input>
+                            </div>
+
+                            <div class="form-group">
+                                <paper-input [(ngModel)]="model.CompanyPhone" label="{{ 'Телефон' | translate }}" name="CompanyPhone" char-counter maxlength="20"></paper-input>
+                            </div>
+
+
+
+
+                            <div class="form-group">
+                                <paper-input [(ngModel)]="model.CompanyEmail" label="E-mail" name="CompanyEmail"></paper-input>
+                            </div>
+
+
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="range offset-top-0">
+                        <div class="cell-xs-12 cell-md-6 section-bottom-25">
+                            <paper-checkbox [(ngModel)]="model.IsRezident" name="IsRezident">{{ 'Резидент РФ' | translate }}</paper-checkbox>
+                        </div>
+
+                        <div class="cell-xs-12 cell-md-6">
+                            <button type="submit"
+                                    class="btn btn-sm btn-curious-blue btn-block" (click)="setCurrentStep(2)">
+                                Следующий шаг
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+
+            <div class="range hidden-md hidden-lg" *ngIf="currentStep==2">
+                <div class="cell-xs-12 text-center">
+                    <h3>
+                        О представителе
+                    </h3>
+                </div>
+            </div>
+            <div class="range" *ngIf="currentStep==2">
+                <div class="cell-xs-12 cell-sm-6 " *ngIf="model.AgentType==1">
+                    <h3>InvoiceCafe подходит вам, если:</h3>
+                    <ul class="list-marked offset-top-19">
+                        <li>Преимущество для поставщика 1</li>
+                        <li>Преимущество для поставщика 2</li>
+                        <li>Преимущество для поставщика 3</li>
+                    </ul>
+                </div>
+                <div class="cell-xs-12 cell-sm-6 " *ngIf="model.AgentType==2">
+                    <h3>InvoiceCafe подходит вам, если:</h3>
+                    <ul class="list-marked offset-top-19">
+                        <li>Преимущество для дебитора 1</li>
+                        <li>Преимущество для дебитора 2</li>
+                        <li>Преимущество для дебитора 3</li>
+                    </ul>
+                </div>
+                <div class="cell-xs-12 cell-sm-6 " *ngIf="model.AgentType==3">
+                    <h3>InvoiceCafe подходит вам, если:</h3>
+                    <ul class="list-marked offset-top-19">
+                        <li>Преимущество для инвестора 1</li>
+                        <li>Преимущество для инвестора 2</li>
+                        <li>Преимущество для инвестора 3</li>
+                    </ul>
+                </div>
+                <div class="cell-xs-12 cell-sm-6">
+                    <form method="post"
+                          class="form2 rd-mailform-label-outside text-left offset-top-15"
+                          novalidate="novalidate">
+                        <div class="range">
+                            <div class="cell-xs-12">
+                                <div class="form-group">
+                                    <paper-input label="{{ 'ФИО' | translate }}" [(ngModel)]="model.PersonName" name="PersonName"></paper-input>
+                                </div>
+                                <div class="form-group">
+                                    <paper-input label="{{ 'Гражданство' | translate }}" [(ngModel)]="model.PersonCitizenship" name="PersonCitizenship"></paper-input>
+                                </div>
+                                <div class="form-group">
+                                    <vaadin-date-picker label="{{ 'Дата рождения' | translate }}" [(value)]="model.PersonBirthDate_str" id="PersonBirthDate_str" name="PersonBirthDate_str" [i18n]="_dp_local"></vaadin-date-picker>
+                                </div>
+
+                                <div class="form-group">
+                                    <paper-input label="{{ 'Мобильный телефон' | translate }}" [(ngModel)]="model.PersonMobilePhone" name="PersonMobilePhone" char-counter maxlength="20"></paper-input>
+                                </div>
+
+                                <div class="form-group">
+                                    <paper-input label="Email (является логином)" [(ngModel)]="model.PersonEmail" name="PersonEmail"></paper-input>
+                                </div>
+                                <div class="form-group">
+                                    <paper-input type="password" label="{{ 'Пароль' | translate }}" [(ngModel)]="model.PersonPassword" name="PersonPassword"></paper-input>
+                                    <span class="text-gray-light">не менее 8 символов, один из них должен быть числом или специальный символ</span>
+                                </div>
+                                <div class="form-group">
+                                    Регистрируясь, вы соглашаетесь с <a href=""
+                                                                        class="link-inline">
+                                        Условиями
+                                        использования
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="range">
+                            <div class="cell-xs-12 cell-md-6">
+                                <button type="button"
+                                        class="btn btn-sm btn-curious-blue-outline btn-block return-btn" (click)="setCurrentStep(1)">
+                                    Вернуться
+                                </button>
+
+                            </div>
+
+                            <div class="cell-xs-12 cell-md-6 offset-top-25 offset-md-top-0">
+                                <button type="button"
+                                        class="btn btn-sm btn-curious-blue btn-block " (click)="submitClick()">
+                                    Зарегистрироваться
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- 3 -->
+
+            <div class="range" *ngIf="currentStep==3">
+                <div class="cell-xs-12 cell-md-6 cell-md-preffix-3">
+                    <div class="text-center">
+                        <div class="icon icon-image">
+                            <img src="../../static/img/svg/checkmark.svg" alt=""
+                                 width="41" height="36">
+                        </div>
+                        <h3>
+                            Благодарим Вас за регистрацию!
+                        </h3>
+                        <p>
+                            Вы успешно зарегистрировались.
+                            Авторизуйтесь чтобы пройти в свой личный кабинет.
+                        </p>
+                        <a href="/Start/Login" class="btn btn-sm btn-curious-blue ">
+                            Войти
+                            в личный кабинет
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</section>
+<paper-toast id="theToast"></paper-toast>
